@@ -16,4 +16,12 @@ public class JwtService {
                 .compact();
     }
 
+    public String pegarEmail(String token){
+        return Jwts.parser()
+                .setSigningKey(SECRET)
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
+    }
+
 }
